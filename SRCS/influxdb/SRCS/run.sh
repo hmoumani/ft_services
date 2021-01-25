@@ -1,0 +1,2 @@
+openrc default
+exec top

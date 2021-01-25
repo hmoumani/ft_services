@@ -19,3 +19,7 @@ kubectl apply -f ./SRCS/phpmyadmin/SRCS/phpmyadmin-service.yaml
 docker build SRCS/wordpress/ -t wordpress-local
 kubectl apply -f ./SRCS/wordpress/SRCS/wordpress-deployment.yaml
 kubectl apply -f ./SRCS/wordpress/SRCS/wordpress-service.yaml
+docker build SRCS/influxdb/ -t influxdb-local
+kubectl apply -f ./SRCS/influxdb/SRCS/influxdb-deployment.yaml
+kubectl apply -f ./SRCS/influxdb/SRCS/influxdb-service.yaml
+kubectl apply -f ./SRCS/influxdb/SRCS/pvc.yaml

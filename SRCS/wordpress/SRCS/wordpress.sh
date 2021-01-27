@@ -1,5 +1,7 @@
-apk update
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories
+apk update && apk upgrade
 apk add nginx curl
+apk --no-cache add telegraf
 adduser -D -g 'www' www
 mkdir /www
 chown -R www:www /var/lib/nginx
@@ -11,7 +13,10 @@ apk add openrc
 mkdir -p /run/nginx
 mkdir -p /run/openrc
 touch /run/openrc/softlevel
-openrc default
+# openrc default
+rc-update add telegraf default
+mkdir /etc/telegraf/
+mv /files/telegraf.conf /etc/telegraf/
 mv /files/phpinfo.php /www/
 wget https://wordpress.org/latest.tar.gz
 tar zxf latest.tar.gz

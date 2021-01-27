@@ -1,2 +1,4 @@
 openrc default
-exec top
+telegraf&
+# exec top
+tail -F /dev/null

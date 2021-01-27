@@ -6,4 +6,6 @@ mkdir -p /run/openrc
 touch /run/openrc/softlevel
 rc-update add influxdb default
 rc-update add telegraf default
-openrc default
+mkdir /etc/telegraf/
+mv /files/telegraf.conf /etc/telegraf/
+# openrc default

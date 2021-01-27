@@ -1,9 +1,10 @@
 minikube delete
-minikube start --vm-driver virtualbox --disk-size 5GB
+minikube start --vm-driver virtualbox --disk-size 15GB
 eval $(minikube docker-env)
+minikube addons enable metrics-server
+minikube dashboard &
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
-minikube dashboard &
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 kubectl apply -f ./SRCS/metalLB/metallb.yaml
 docker build SRCS/nginx/ -t nginx-local
@@ -23,3 +24,6 @@ docker build SRCS/influxdb/ -t influxdb-local
 kubectl apply -f ./SRCS/influxdb/SRCS/influxdb-deployment.yaml
 kubectl apply -f ./SRCS/influxdb/SRCS/influxdb-service.yaml
 kubectl apply -f ./SRCS/influxdb/SRCS/pvc.yaml
+docker build SRCS/grafana/ -t grafana-local
+kubectl apply -f ./SRCS/grafana/SRCS/grafana-deployment.yaml
+kubectl apply -f ./SRCS/grafana/SRCS/grafana-service.yaml

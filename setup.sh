@@ -1,3 +1,4 @@
+minikube config set memory 3072
 minikube delete
 minikube start --vm-driver virtualbox --disk-size 15GB
 eval $(minikube docker-env)

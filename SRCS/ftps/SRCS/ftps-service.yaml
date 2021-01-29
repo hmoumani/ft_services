@@ -12,4 +12,8 @@ spec:
       protocol: TCP
       port: 21
       targetPort: 21
+    - port: 31110
+      name: p1
+    - port: 31111
+      name: p2
   type: LoadBalancer

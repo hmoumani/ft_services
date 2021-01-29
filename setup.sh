@@ -28,3 +28,6 @@ kubectl apply -f ./SRCS/influxdb/SRCS/pvc.yaml
 docker build SRCS/grafana/ -t grafana-local
 kubectl apply -f ./SRCS/grafana/SRCS/grafana-deployment.yaml
 kubectl apply -f ./SRCS/grafana/SRCS/grafana-service.yaml
+docker build SRCS/ftps/ -t ftps-local
+kubectl apply -f ./SRCS/ftps/SRCS/ftps-deployment.yaml
+kubectl apply -f ./SRCS/ftps/SRCS/ftps-service.yaml

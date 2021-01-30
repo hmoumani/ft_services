@@ -22,3 +22,10 @@ spec:
             - containerPort: 21
             - containerPort: 31110
             - containerPort: 31111
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - /files/healthy.sh
+            initialDelaySeconds: 5
+            periodSeconds : 10

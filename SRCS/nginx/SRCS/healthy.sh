@@ -1,9 +1,9 @@
 ps > test
-cat test | grep nginx
+cat test | grep nginx > /dev/null 
 p1=$?
-cat test | grep telegraf
+cat test | grep telegraf > /dev/null 
 p2=$?
-cat test | grep sshd
+cat test | grep sshd > /dev/null 
 p3=$?
 
 if [ $p1 == 1 ] || [ $p2 == 1 ] || [ $p3 == 1 ]

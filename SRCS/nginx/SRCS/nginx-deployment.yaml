@@ -27,5 +27,5 @@ spec:
               command:
                 - sh
                 - /files/healthy.sh
-              initialDelaySeconds: 5
-              periodSeconds : 10
+            initialDelaySeconds: 5
+            periodSeconds : 10

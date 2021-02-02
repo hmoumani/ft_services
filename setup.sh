@@ -1,4 +1,5 @@
 minikube config set memory 3072
+export MINIKUBE_HOME=/goinfre/hmoumani/ft_services
 minikube delete
 minikube start --vm-driver virtualbox --disk-size 15GB
 eval $(minikube docker-env)
